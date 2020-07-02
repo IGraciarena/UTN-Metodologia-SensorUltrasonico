@@ -2,8 +2,8 @@
 
     use DAO\Connection as Connection;
     use Models\ClassInfo as Info; 
-    require_once "DAO/Connection.php";
-    require_once "Models/ClassInfo.php";
+    require_once "Connection.php";
+    require_once  dirname(__DIR__) ."/Models/ClassInfo.php";
     
     class InfoDao{
         
@@ -29,6 +29,69 @@
             } 
         }
           /*
+        *Trae todas los datos del sensor, de a 10 para la paginacion
+        */
+        public function getRow4Page($iniciar,$art_x_pag){
+            $sql="SELECT * FROM distancia limit :iniciar,:narticulos";
+            $parameters["iniciar"]=$iniciar;
+            $parameters["narticulos"]=$art_x_pag;
+            try{
+                //creo la instancia de coneccion
+                $this->connection= Connection::getInstance();
+                $result = $this->connection->execute4Pages($sql,$parameters);
+            }catch(\PDOException $ex){
+                throw $ex;
+            } 
+            //hay que mapear de un arreglo asociativo a objetos
+            if(!empty($result)){
+                return $this->mapear($result);
+            }else{
+                return false;
+            }
+        }
+         /*
+        *
+        */
+        public function getRow4PageByDate($iniciar,$art_x_pag,$searchDate){
+            $sql="SELECT * FROM distancia where fecha = :searchDate limit :iniciar,:narticulos";
+            $parameters["iniciar"]=$iniciar;
+            $parameters["narticulos"]=$art_x_pag;
+            $parameters["searchDate"]=$searchDate;
+            try{
+                //creo la instancia de coneccion
+                $this->connection= Connection::getInstance();
+                $result = $this->connection->execute4PagesByDate($sql,$parameters);
+            }catch(\PDOException $ex){
+                throw $ex;
+            } 
+            //hay que mapear de un arreglo asociativo a objetos
+            if(!empty($result)){
+                return $this->mapear($result);
+            }else{
+                return false;
+            }
+        }
+        /*
+        *
+        */
+        public function getCountRow4PageByDate($searchDate){
+            $sql="SELECT * FROM distancia where fecha = :searchDate";
+            $parameters["searchDate"]=$searchDate;
+            try{
+                //creo la instancia de coneccion
+                $this->connection= Connection::getInstance();
+                $result = $this->connection->execute4PagesByDateRowCount($sql,$parameters);
+            }catch(\PDOException $ex){
+                throw $ex;
+            } 
+            //hay que mapear de un arreglo asociativo a objetos
+            if(!empty($result)){
+                return $result;
+            }else{
+                return false;
+            }
+        }
+          /*
         *
         */
         public function getAll(){
@@ -46,8 +109,25 @@
             }else{
                 return false;
             }
-
         }
+
+        public function getRowCount(){
+            $sql="SELECT * FROM distancia";
+            try{
+                //creo la instancia de coneccion
+                $this->connection= Connection::getInstance();
+                $result = $this->connection->executeAndReturnRowsCount($sql);
+            }catch(\PDOException $ex){
+                throw $ex;
+            } 
+            //hay que mapear de un arreglo asociativo a objetos
+            if(!empty($result)){
+                return $result;
+            }else{
+                return false;
+            }
+        }
+        
 
          /*
         *Convierte un array asociativo a un array de objetos para facilitar su manejo

@@ -1,5 +1,7 @@
 <?php namespace Controllers;
+/*require_once "../DAO/InfoDao.php";
     use DAO\InfoDao as InfoDao;
+    
 
 class ViewsController{
 
@@ -10,10 +12,14 @@ class ViewsController{
         $this->infoDao = new InfoDao();
     }
 
-    public function grilla(){
+    public function home(){
 
-        $info = $infoDao->getAll();
-        require_once(VIEWS_PATH."grilla.php");
+        
+        include_once("../nav.php");
+        include_once("../header.php");
+        include_once("../welcome.php");
+        include_once("../footer.php");
     }
    
-}
+}*/
+?>

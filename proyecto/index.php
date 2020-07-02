@@ -9,17 +9,19 @@
 
 
 	session_start();
-
+	//session_destroy();
 	include('header.php'); 
 	include('nav.php'); 
+	//var_dump($_SESSION);
+	if(!isset($_SESSION['loggedUser'])){
 	 ?>
    
 		<main class="d-flex align-items-center justify-content-center height-100">
 			 <div class="content">
-				  <header class="text-center">
+				  <header style="margin-top:80px;"class="text-center">
 					   <h2>Arduino UTN</h2>
 				  </header>
-				  <form action="process/logueo.php" method="post" class="login-form bg-dark-alpha p-5 text-white">
+				  <form action="logueo.php" method="post" class="login-form bg-dark-alpha p-5 text-white">
 					   <div class="form-group">
 							<label for="">User Name</label>
 							<input type="text" name="userName" class="form-control form-control-lg" placeholder="Ingresar usuario">
@@ -38,7 +40,11 @@
 		</main>
    
    <?php
-	include('footer.php') 
+	
+	include('footer.php'); 
+	}else{
+		header("location:welcome.php");
+	}
    ?>
    
 ?>
