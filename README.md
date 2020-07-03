@@ -25,7 +25,7 @@ _These instructions would allow you to make a copy of the proyect working on you
 We personally recommend to use [Xampp] (https://www.apachefriends.org/es/index.html) for the Apache Web Server and Database Mysql
 ```
 ### Instalation 🔧
-![wireconection](C:\xampp\htdocs\UTN-Metodologia-SensorUltrasonico\proyecto\data\sketch.png)
+[wireconection](https://www.github.com/IGraciarena/UTN-Metodologia-SensorUltrasonico/proyecto/data/sketch.png)
 ## Built With 🛠️
 * [PHP] - The Programming language for the Web.
 * [C] - The programming language for the BackEnd.
