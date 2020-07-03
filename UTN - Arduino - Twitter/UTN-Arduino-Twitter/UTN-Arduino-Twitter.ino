@@ -17,7 +17,7 @@ char msg[140]; // Mensaje para Twitter
 
 // Configuracion del Ethernet Shield
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFF, 0xEE}; // Direccion MAC
-byte ip[] = { 192,168,0,177 }; // Direccion IP del Arduino
+byte ip[] = { 192,168,0,233 }; // Direccion IP del Arduino
 byte server[] = { 192,168,0,111 }; // Direccion IP del servidor
 EthernetClient cliente;//objeto del ethernet
 
@@ -50,7 +50,7 @@ void loop() {
   if(distancia>0 && distancia<=30){
      Serial.println("Envio distancia menor a 30, conectando...");
     if (cliente.connect(server, 80)>0) {  // Conexion con el servidor(client.connect(server, 80)>0
-      cliente.print("GET /ArduinoUTN/proyecto/arduino.php?distancia="); // Enviamos los datos por GET
+      cliente.print("GET /UTN-Metodologia-SensorUltrasonico/proyecto/arduino.php?distancia="); // Enviamos los datos por GET
       cliente.print(distancia);
       cliente.println(" HTTP/1.0");
       cliente.println("User-Agent: Arduino 1.0");

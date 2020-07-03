@@ -34,7 +34,7 @@
 
         public function sendEmail($distancia,$fecha,$hora){
             
-            $to = 'villordo235@gmail.com';
+            $to = 'igraciarena@gmail.com';
             $message="Su sensor fue activado el dia:".$fecha." ".$hora." con una distancia de:".$distancia;
             $subject="Notificacion del sensor";
             $header="De: ".$this->from;
