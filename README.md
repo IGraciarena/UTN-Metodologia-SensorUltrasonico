@@ -1,4 +1,4 @@
-# UTN-Metodologia-SensorUltrasonico
+# UTN-Metodologia-UltrasonicSensor
 The proyect is about a prototype of a ultrasonic sensor for a house, a door or any object that you want to protect from a distance between 0cm and 30cm
 it will tweet about that and it will sent you an email with the information captured.
 In the web you will see all the info that the sensor captured all the way.
@@ -35,7 +35,7 @@ We personally recommend to use [Xampp] (https://www.apachefriends.org/es/index.h
 ## Authors ✒️
 * **Ivan Gracianrea** - *Initial Work* - [IGraciarena](https://github.com/IGraciarena)
 * **Jorge Villordo** - *Initial Work* - [villordo](https://github.com/villordo)
-## Expresiones de Gratitud 🎁
+## Greatings 🎁
 * Really gratefull for the Arduino Community on youtube and the hole web!
 * Comment to other about the proyect 📢
 * Invite a Beer 🍺 or a coffe ☕ to someone of the proyect. 
